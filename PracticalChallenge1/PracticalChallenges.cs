@@ -2,19 +2,21 @@
 
 namespace PracticalChallenges;
 
-internal class PracticalChallenges ()
+internal class PracticalChallenges()
 {
-      static void WelcomeMenu()
+    static void WelcomeMenu()
     {
         Challenge1 program = new Challenge1();
 
-        Console.WriteLine("\nSelect which program you want to use:\n" +
-            "1. Welcome Message\n" +
-            "2. Name Concat\n" +
-            "3. Math Operations\n" +
-            "4. Number of characters\n" +
-            "5. Valid car plate\n" +
-            "6. Format date\n");
+        Console.WriteLine(
+            "\nSelect which program you want to use:\n"
+                + "1. Welcome Message\n"
+                + "2. Name Concat\n"
+                + "3. Math Operations\n"
+                + "4. Number of characters\n"
+                + "5. Valid car plate\n"
+                + "6. Format date\n"
+        );
 
         var answer = Console.ReadLine() ?? "";
 
@@ -29,17 +31,20 @@ internal class PracticalChallenges ()
             case "3":
                 program.MathOperations();
                 break;
+            case "4":
+                program.CheckNumberOfCharacters();
+                break;
+            case "5":
+                program.ValidateCarPlate();
+                break;
             default:
                 break;
         }
         WelcomeMenu();
-
     }
-      static void Main()
+
+    static void Main()
     {
-
         WelcomeMenu();
-       
     }
-
 }

@@ -1,4 +1,6 @@
-﻿namespace PracticalChallenges.Programs;
+﻿using System.Text.RegularExpressions;
+
+namespace PracticalChallenges.Programs;
 
 public class Challenge1
 {
@@ -23,6 +25,7 @@ public class Challenge1
 
         Console.WriteLine($"{name} {surname}");
     }
+
     public void MathOperations()
     {
         double x;
@@ -40,11 +43,13 @@ public class Challenge1
         double division = x / y;
         double mean = (x + y) / 2;
 
-        Console.WriteLine($"Sum is {sum}\n" +
-            $"Subtraction is {subtraction}\n" +
-            $"Multiplication is {multiplication}\n" +
-            $"Divsion is {division}\n" +
-            $"Mean is {mean}");
+        Console.WriteLine(
+            $"Sum is {sum}\n"
+                + $"Subtraction is {subtraction}\n"
+                + $"Multiplication is {multiplication}\n"
+                + $"Divsion is {division}\n"
+                + $"Mean is {mean}"
+        );
     }
 
     public void CheckNumberOfCharacters()
@@ -52,8 +57,44 @@ public class Challenge1
         Console.WriteLine("Type one or more words:");
         var words = Console.ReadLine();
 
-        words.ToList().ForEach
+        if (words is not null)
+        {
+            char[] wordsArr = words.ToArray();
+
+            int numberOfWords = 0;
+
+            foreach (var letter in wordsArr)
+            {
+                if (letter != ' ')
+                {
+                    numberOfWords += 1;
+                }
+            }
+            Console.WriteLine($"The number of characters in this phrase is :{numberOfWords}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
+        }
     }
+
+    public void ValidateCarPlate()
+    {
+      Console.WriteLine("Type the car plate:");
+
+      var plate  = Console.ReadLine();
+
+      string plateRegex= @"^[A-Za-z]{3}[0-9]{4}$";
+
+      var match = Regex.Match(plate, plateRegex);
+
+      string  validMessage = match.Success ? "Placa válida" : "Placa inválida";
+
+        Console.WriteLine(validMessage);
+
+      }
+    
+
     public void List()
     {
         List<int> integers = new List<int>();
