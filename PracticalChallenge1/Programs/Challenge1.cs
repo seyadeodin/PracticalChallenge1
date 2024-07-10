@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace PracticalChallenges.Programs;
 
@@ -80,23 +81,61 @@ public class Challenge1
 
     public void ValidateCarPlate()
     {
-      Console.WriteLine("Type the car plate:");
+        Console.WriteLine("Type the car plate:");
 
-      var plate  = Console.ReadLine();
+        var plate = Console.ReadLine();
 
-      string plateRegex= @"^[A-Za-z]{3}[0-9]{4}$";
+        string plateRegex = @"^[A-Za-z]{3}[0-9]{4}$";
 
-      var match = Regex.Match(plate, plateRegex);
+        var match = Regex.Match(plate, plateRegex);
 
-      string  validMessage = match.Success ? "Placa válida" : "Placa inválida";
+        string validMessage = match.Success ? "Valid plate" : "Invalid palte";
 
         Console.WriteLine(validMessage);
+    }
 
-      }
-    
-
-    public void List()
+    public void DisplayCurrentDateTime()
     {
-        List<int> integers = new List<int>();
+        Console.WriteLine(
+            "\nSelect which program you want to use:\n"
+                + "1. Complete date\n"
+                + "2. dd/mm/YYYY\n"
+                + "3. hh:mm \n"
+                + "4. Long form\n"
+        );
+        var option = Console.ReadLine();
+
+        var now = DateTime.Now;
+
+        switch (option)
+        {
+            case "1":
+                  Console.WriteLine(now.ToString("G", new CultureInfo("pt-BR")));
+                break;
+            case "2":
+                  Console.WriteLine(now.ToString("d", new CultureInfo("pt-BR")));
+                break;
+            case "3":
+                  Console.WriteLine(now.ToString("t", new CultureInfo("pt-BR")));
+                break;
+            case "4":
+                  Console.WriteLine(now.ToString("d", new CultureInfo("pt-BR")));
+                break;
+        }
+    }
+
+    public void LearningDates()
+    {
+      DateOnly date = new DateOnly(2001, 09, 11);
+
+      Console.WriteLine(date);
+      
+      string dateText = date.ToLongDateString();
+
+      Console.WriteLine($"{date.ToLongDateString()} vs {date.ToShortDateString()}");
+
+      string dateTextBR = date.ToString("D", new CultureInfo("pt-BR"));
+
+      Console.WriteLine(dateTextBR);
     }
 }

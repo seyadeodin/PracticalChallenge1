@@ -18,9 +18,9 @@ internal class PracticalChallenges()
                 + "6. Format date\n"
         );
 
-        var answer = Console.ReadLine() ?? "";
+        var option = Console.ReadLine() ?? "";
 
-        switch (answer)
+        switch (option)
         {
             case "1":
                 program.WelcomeMessage();
@@ -36,6 +36,13 @@ internal class PracticalChallenges()
                 break;
             case "5":
                 program.ValidateCarPlate();
+                break;
+            case "6":
+                program.DisplayCurrentDateTime();
+                break;
+
+            case "-1":
+                program.LearningDates();
                 break;
             default:
                 break;
