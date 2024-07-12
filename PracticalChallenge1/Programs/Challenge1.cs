@@ -124,18 +124,4 @@ public class Challenge1
         }
     }
 
-    public void LearningDates()
-    {
-      DateOnly date = new DateOnly(2001, 09, 11);
-
-      Console.WriteLine(date);
-      
-      string dateText = date.ToLongDateString();
-
-      Console.WriteLine($"{date.ToLongDateString()} vs {date.ToShortDateString()}");
-
-      string dateTextBR = date.ToString("D", new CultureInfo("pt-BR"));
-
-      Console.WriteLine(dateTextBR);
-    }
 }

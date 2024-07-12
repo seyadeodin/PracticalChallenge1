@@ -1,0 +1,11 @@
+- objects are rarely used -> scenarios where we don't want to define our object -> e.g. json conversion
+- we can use an object to mix different types in a list -> but whytf would I?
+- static class -> use class functions withotu need toinstantiate it -> useful when class dont depend on external values
+- when variables are static they are are shared by all instances
+- debug 
+	- f10 -> goes to next line 
+	- f11 -> goes through process
+	- shift f11 -> step out of process
+	- f9 -> add breakpoint
+	- f5 -> run application
+	- you can drag the arrow back to the previous lien to

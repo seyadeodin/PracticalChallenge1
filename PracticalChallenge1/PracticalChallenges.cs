@@ -7,6 +7,7 @@ internal class PracticalChallenges()
     static void WelcomeMenu()
     {
         Challenge1 program = new Challenge1();
+        Fundamentals fundamentals = new Fundamentals();
 
         Console.WriteLine(
             "\nSelect which program you want to use:\n"
@@ -15,7 +16,8 @@ internal class PracticalChallenges()
                 + "3. Math Operations\n"
                 + "4. Number of characters\n"
                 + "5. Valid car plate\n"
-                + "6. Format date\n"
+                + "6. Format date\n\n"
+                + "0. Fundamentas examples\n"
         );
 
         var option = Console.ReadLine() ?? "";
@@ -41,8 +43,8 @@ internal class PracticalChallenges()
                 program.DisplayCurrentDateTime();
                 break;
 
-            case "-1":
-                program.LearningDates();
+            case "0":
+                fundamentals.Menu();
                 break;
             default:
                 break;
